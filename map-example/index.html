@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="msapplication-tap-highlight" content="no" />
+    <title>ECharts · Example</title>
+    <link href="./asset/css/font-awesome.min.css" rel="stylesheet">
+    <link href="./asset/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./asset/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="./asset/css/carousel.css" rel="stylesheet">
+    <link href="./asset/css/echartsHome.css" rel="stylesheet">
+    <link href="./asset/css/codemirror.css" rel="stylesheet">
+    <link href="./asset/css/monokai.css" rel="stylesheet">
+    <link href="./asset/css/flexslider.css" rel="stylesheet">
+    <style type="text/css">
+        html{
+            background:white;
+        }
+        #main{
+          width:98%;
+          min-height:600px;
+        }
+    </style>
+</head>
+
+<body>
+<!-- Fixed navbar -->
+<div id="main" class="main col-xs-12	col-sm-12	col-md-12	col-lg-12" ></div>
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="./asset/js/jquery.min.js"></script>
+<script src="./asset/js/echarts-all.js"></script>
+<script src="./asset/js/hammer.min.js"></script>
+<script >
+    $(function(){
+        var main=document.getElementById('main');
+        var myChart = echarts.init(main);
+        option = {
+            title : {
+                text: '',
+                subtext: '',
+                x:'center'
+            },
+            dataRange: {
+                show:false,
+                min: 0,
+                max: 2500,
+                x: 'left',
+                y: 'bottom',
+                text:['高','低'],           // 文本，默认为数值文本
+                calculable : true
+            },
+            roamController: {
+                show: true,
+                x: 'center',
+                y:'top',
+                mapTypeControl: {
+                    'china': true
+                }
+            },
+            series : [
+                {
+                    name: '中国',
+                    type: 'map',
+                    mapType: 'china',
+                    selectedMode : 'multiple',
+                    roam: false,
+                    itemStyle:{
+                        normal:{label:{show:true}},
+                        emphasis:{label:{show:true}}
+                    },
+                    data:[
+                        {name: '北京',value: Math.round(Math.random()*1000)},
+                        {name: '天津',value: Math.round(Math.random()*1000)},
+                        {name: '上海',value: Math.round(Math.random()*1000)},
+                        {name: '重庆',value: Math.round(Math.random()*1000)},
+                        {name: '河北',value: Math.round(Math.random()*1000)},
+                        {name: '河南',value: Math.round(Math.random()*1000)},
+                        {name: '云南',value: Math.round(Math.random()*1000)},
+                        {name: '辽宁',value: Math.round(Math.random()*1000)},
+                        {name: '黑龙江',value: Math.round(Math.random()*1000)},
+                        {name: '湖南',value: Math.round(Math.random()*1000)},
+                        {name: '安徽',value: Math.round(Math.random()*1000)},
+                        {name: '山东',value: Math.round(Math.random()*1000)},
+                        {name: '新疆',value: Math.round(Math.random()*1000)},
+                        {name: '江苏',value: Math.round(Math.random()*1000)},
+                        {name: '浙江',value: Math.round(Math.random()*1000)},
+                        {name: '江西',value: Math.round(Math.random()*1000)},
+                        {name: '湖北',value: Math.round(Math.random()*1000)},
+                        {name: '广西',value: Math.round(Math.random()*1000)},
+                        {name: '甘肃',value: Math.round(Math.random()*1000)},
+                        {name: '山西',value: Math.round(Math.random()*1000)},
+                        {name: '内蒙古',value: Math.round(Math.random()*1000)},
+                        {name: '陕西',value: Math.round(Math.random()*1000)},
+                        {name: '吉林',value: Math.round(Math.random()*1000)},
+                        {name: '福建',value: Math.round(Math.random()*1000)},
+                        {name: '贵州',value: Math.round(Math.random()*1000)},
+                        {name: '广东',value: Math.round(Math.random()*1000)},
+                        {name: '青海',value: Math.round(Math.random()*1000)},
+                        {name: '西藏',value: Math.round(Math.random()*1000)},
+                        {name: '四川',value: Math.round(Math.random()*1000)},
+                        {name: '宁夏',value: Math.round(Math.random()*1000)},
+                        {name: '海南',value: Math.round(Math.random()*1000)},
+                        {name: '台湾',value: Math.round(Math.random()*1000)},
+                        {name: '香港',value: Math.round(Math.random()*1000)},
+                        {name: '澳门',value: Math.round(Math.random()*1000)}
+                    ]
+                }
+            ]
+        };
+        myChart.on('click',function(params){
+            console.log(params)
+            var promename=params.name;
+            switch(promename) {
+                case "新疆":console.log("新疆");break;
+                case "西藏":console.log("西藏");break;
+                case "甘肃":console.log("甘肃");break;
+                case "青海":console.log("青海");break;
+                case "四川":console.log("四川");break;
+                case "云南":console.log("云南");break;
+                case "内蒙古":console.log("内蒙古");break;
+                case "宁夏":console.log("宁夏");break;
+                case "陕西":console.log("陕西");break;
+                case "河南":console.log("河南");break;
+                case "重庆":console.log("重庆");break;
+                case "湖北":console.log("湖北");break;
+                case "贵州":console.log("贵州");break;
+                case "湖南":console.log("湖南");break;
+                case "广西":console.log("广西");break;
+                case "广东":console.log("广东");break;
+                case "海南":console.log("海南");break;
+                case "黑龙江":console.log("黑龙江");break;
+                case "吉林":console.log("吉林");break;
+                case "辽宁":console.log("辽宁");break;
+                case "北京":console.log("北京");break;
+                case "山西":console.log("山西");break;
+                case "河北":console.log("河北");break;
+                case "天津":console.log("天津");break;
+                case "山东":console.log("山东");break;
+                case "安徽":console.log("安徽");break;
+                case "江苏":console.log("江苏");break;
+                case "上海":console.log("上海");break;
+                case "浙江":console.log("浙江");break;
+                case "江西":console.log("江西");break;
+                case "福建":console.log("福建");break;
+                case "台湾":console.log("台湾");break;
+                case "香港":console.log("香港");break;
+                case "澳门":console.log("澳门");break;
+            }
+        })
+        myChart.setOption(option);
+    })
+</script>
+
+</body>
+</html>
